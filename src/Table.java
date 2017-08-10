@@ -1,4 +1,8 @@
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +35,9 @@ public class Table {
     }
     public List<Column> getColumns(){
         return columns;
+    }
+    public List<Row> getRows(){
+        return rows;
     }
     public List<String> getColumnNames(){
         List<String> columnNames = new ArrayList<>();

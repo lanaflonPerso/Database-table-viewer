@@ -20,7 +20,7 @@ public class Interface extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Interface.fxml"));
-        primaryStage.setTitle("Java Server Address Book");
+        primaryStage.setTitle("Database table viewer");
         primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.setOnCloseRequest(x -> Platform.exit());
         primaryStage.show();

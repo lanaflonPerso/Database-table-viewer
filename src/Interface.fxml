@@ -14,6 +14,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+<?import javafx.scene.control.CheckBox?>
 <GridPane fx:controller="InterfaceController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <padding>
@@ -28,22 +29,15 @@
         <PasswordField fx:id="passwordField" promptText="Password" prefWidth="150"/>
         <TextField fx:id="databaseField" promptText="Database name" prefWidth="150"/>
         <Button fx:id="loginButton" onAction="#loginAuth" text="Login"></Button>
+        <CheckBox text="Remember?" fx:id="saveInfoCheckBox"></CheckBox>
         <Label fx:id="loginErrorLabel" text="Something went wrong." visible="false"></Label>
     </VBox>
     <VBox fx:id="startMenuBox" visible="false" spacing="10">
         <HBox spacing="10">
-            <ComboBox fx:id="viewComboBox" onAction="#changeViews">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Table view" />
-                        <String fx:value="Contents view" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
             <ComboBox fx:id="tableComboBox" onAction="#changeTables">
             </ComboBox>
         </HBox>
-        <TableView fx:id = "tableViewTable">
+        <TableView fx:id = "tableViewTable" prefWidth="700">
             <columns>
                 <TableColumn style = "-fx-font: NORMAL 12 Tahoma;" text="Position ID" prefWidth="100" fx:id="positionID">
                     <cellValueFactory><PropertyValueFactory property="positionID" />
@@ -75,6 +69,9 @@
             <sortOrder>
                 <fx:reference source="positionID"/>
             </sortOrder>
+        </TableView>
+        <TableView fx:id = "contentsViewTable" visible="true" style = "-fx-font: NORMAL 12 Tahoma;" prefWidth="700">
+
         </TableView>
     </VBox>
 </GridPane>
