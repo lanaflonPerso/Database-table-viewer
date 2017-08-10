@@ -29,6 +29,9 @@ public class Table {
             System.out.println(row.getRowString());
         }
     }
+    public List<Column> getColumns(){
+        return columns;
+    }
     public List<String> getColumnNames(){
         List<String> columnNames = new ArrayList<>();
         for(Column column : columns) {

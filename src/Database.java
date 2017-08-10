@@ -19,7 +19,14 @@ public class Database {
         getTableColumns();
         getTableContents();
     }
-    private void getTableContents() throws SQLException { /// something fuckky fucky with the ordering
+    public Table getTable(String tableName) throws Exception{
+        for(Table table : tables) {
+            if(table.getName().equals(tableName))
+                return table;
+        }
+        throw new Exception("No such table");
+    }
+    private void getTableContents() throws SQLException {
         List<String> rowValues;
         for(Table table : tables) {
             List<String> columnNames = table.getColumnNames();
@@ -42,9 +49,16 @@ public class Database {
         }
 
     }
+    public List<String> getTableNames() {
+        List<String> tableNames = new ArrayList<>();
+        for(Table table : tables){
+            tableNames.add(table.getName());
+        }
+        return tableNames;
+    }
     private void getTableColumns() throws SQLException {
         for(Table table : tables) {
-            ResultSet rs = connection.queryTry("SELECT * FROM information_schema.`COLUMNS` WHERE TABLE_SCHEMA = \"blockfeemanagement\" AND TABLE_NAME = \""+table.getName()+"\"");
+            ResultSet rs = connection.queryTry("SELECT * FROM information_schema.`COLUMNS` WHERE TABLE_SCHEMA = \""+name+"\" AND TABLE_NAME = \""+table.getName()+"\"");
             while(rs.next()) {
                 Column column = new Column(rs.getString("COLUMN_NAME"),rs.getString("ORDINAL_POSITION"),
                                 rs.getString("IS_NULLABLE"),rs.getString("DATA_TYPE"),rs.getString("CHARACTER_MAXIMUM_LENGTH"),

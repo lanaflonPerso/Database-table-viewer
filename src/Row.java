@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ import java.util.Map;
 public class Row {
     Map<String,String> row;
     public Row(List<String> columnNames, List<String> values) {
-        row = new HashMap<>();
+        row = new LinkedHashMap<>();
         int valueCounter = 0;
         for(String columnName: columnNames) {
             row.put(columnName,values.get(valueCounter++));

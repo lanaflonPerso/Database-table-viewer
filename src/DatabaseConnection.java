@@ -13,17 +13,17 @@ public class DatabaseConnection {
     private Statement stmt = null;
     private ResultSet rs = null;
     private static DatabaseConnection connReference;
-    private DatabaseConnection(String user, String pass) {
-        DB_URL = "jdbc:mysql://localhost:3306/";
+    private DatabaseConnection(String user, String pass, String databaseAddress) {
+        DB_URL = "jdbc:mysql://"+databaseAddress+"/";
         USER = user;
         PASS = pass;
         registerJDBC();
         openConn();
         prepareStatement();
     }
-    public static DatabaseConnection getInstance(String user, String pass) {
+    public static DatabaseConnection getInstance(String user, String pass, String databaseAddress) {
         if (connReference == null) {
-            connReference = new DatabaseConnection(user,pass);
+            connReference = new DatabaseConnection(user,pass,databaseAddress);
         }
         return connReference;
     }
