@@ -22,23 +22,6 @@ public class Row {
         }
         return cellList;
     }
-    public List<String> getRowValues() {
-        return (List<String>) row.values();
-    }
-    public ObservableMap<String,String> getObservableRowMap(){
-        return FXCollections.observableMap(row);
-    }
-
-    public String getValue(String columnName) {
-        return row.get(columnName);
-    }
-    public String getRowString(){
-        StringBuilder rowString = new StringBuilder();
-        for(String column : row.keySet()) {
-            rowString.append(row.get(column) + "  ");
-        }
-        return rowString.toString();
-    }
 }
 class Cell
 {

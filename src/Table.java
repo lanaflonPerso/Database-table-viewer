@@ -21,18 +21,7 @@ public class Table {
     public void addColumn(Column column) {
         columns.add(column);
     }
-    public void addRow(Row row){ rows.add(row);};
-    public void printColumns(){
-        for(Column column : columns) {
-            System.out.println("ID: " + column.getPositionID() + "| Name: " + column.getColumnName() + "| Datatype: " + column.getDataType() +
-                    "| ColumnType: " + column.getColumnType() + "| IsNullable: " + column.getIsNullable() + "| MaxLength " + column.getMaxLength() + " ");
-        }
-    }
-    public void printRows(){
-        for(Row row : rows ) {
-            System.out.println(row.getRowString());
-        }
-    }
+    public void addRow(Row row){ rows.add(row);}
     public List<Column> getColumns(){
         return columns;
     }

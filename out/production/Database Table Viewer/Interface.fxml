@@ -33,6 +33,9 @@
         <Label fx:id="loginErrorLabel" text="Something went wrong." visible="false"></Label>
     </VBox>
     <VBox fx:id="startMenuBox" visible="false" spacing="10">
+        <Label fx:id="databaseLabel" style = "-fx-font: NORMAL 20 Tahoma; -fx-alignment: center" visible="false"
+               GridPane.rowIndex="0" GridPane.columnIndex ="0">
+        </Label>
         <HBox spacing="10">
             <ComboBox fx:id="tableComboBox" onAction="#changeTables">
             </ComboBox>

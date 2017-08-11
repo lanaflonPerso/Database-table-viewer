@@ -2,7 +2,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.jar.Pack200;
 
 /**
  * Created by Tomov on 2.8.2017 г..
@@ -18,6 +17,7 @@ public class Database {
         getTables();
         getTableColumns();
         getTableContents();
+        connection.closeConnection();
     }
     public Table getTable(String tableName) throws Exception{
         for(Table table : tables) {
@@ -67,13 +67,5 @@ public class Database {
             }
 
         }
-    }
-    public void printTables() {
-        for(Table table: tables) {
-            System.out.println(table.getName());
-            table.printColumns();
-            table.printRows();
-        }
-        connection.closeConnection(); // needs to be removed
     }
 }
