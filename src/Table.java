@@ -21,7 +21,9 @@ public class Table {
     public void addColumn(Column column) {
         columns.add(column);
     }
-    public void addRow(Row row){ rows.add(row);}
+    public void addRow(Row row){
+        rows.add(row);
+    }
     public List<Column> getColumns(){
         return columns;
     }
@@ -38,7 +40,10 @@ public class Table {
     public String getName() {
         return name;
     }
-    public int getTableSize(){ return columns.size();}
+    public int getTableSize(){
+        return columns.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
